@@ -53,13 +53,13 @@
 						</div>
 					</div>
 					<ul class="list-group t20">
-						{% for task in tasks %}
-							{% if task.complete %}
+						{% for t in tasks %}
+							{% if t.complete %}
 								
 								
-								<li class="list-group-item todo-completed">{{ task.name }}</li>
+								<li class="list-group-item todo-completed">{{ t.name }}</li>
 							{% else %}
-								<a href="{% url 'complete' task.id %}" class="task"><li class="list-group-item">{{ task.name }}</li></a>
+								<a href="{% url 'complete' t.id %}" class="task"><li class="list-group-item">{{ t.name }}</li></a>
 							{% endif %}
 						{% endfor %}
 						
