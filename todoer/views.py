@@ -4,9 +4,9 @@ from .forms import TaskForm
 
 
 def index(request):
-	tasks = Task.objects.order_by('id')
+	todo_list = Task.objects.order_by('id')
 	form = TaskForm()
-	context = {'tasks':tasks, 'form':form}
+	context = {'todo_list':todo_list, 'form':form}
 	return render(request, 'todoer/index.html', context)
 
 
