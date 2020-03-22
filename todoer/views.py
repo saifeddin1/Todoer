@@ -2,7 +2,6 @@ from django.shortcuts import render, redirect
 from .models import Todo
 from .forms import  TodoForm
 
-
 def index(request):
 	todo_list = Todo.objects.order_by('id')
 	form = TodoForm()
