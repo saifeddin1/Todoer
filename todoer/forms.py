@@ -1,29 +1,16 @@
 from django import forms 
-from .models import Todo
+
+from django.contrib.auth.forms import UserCreationForm
+from django.contrib.auth.models import User
+
+class TodoForm(forms.Form):
+	text = forms.CharField(max_length=40, 
+		widget=forms.TextInput(
+			attrs={'class' : 'form-control', 'placeholder' : 'Enter todo e.g. Delete junk files', 'aria-label' : 'Todo', 'aria-describedby' : 'add-btn'}))
 
 
-# class TaskForm(forms.Form):
-# 	name = forms.CharField(max_length=40, 
-# 		widget=forms.TextInput(attrs={
-# 			'class':'form-control',
-# 			'placeholder':'Add some tasks e.g Clean the room',
-# 			'aria-label':'Todo',
-# 			'aria-describedby':'add-btn'
-# 			}))
-
-
-class TodoForm(forms.ModelForm):
+class CreateUserForm(UserCreationForm):
     class Meta:
-        model = Todo
-        fields = ['name']
-        widgets = {
-        	'name' : forms.TextInput(
-        		attrs={
-					'class':'form-control',
-					'placeholder':'Add some tasks e.g Clean the room',
-					'aria-label':'Todo',
-					'aria-describedby':'add-btn',
-			})
-        }
-
+        model = User
+        fields = ('username','email','password1','password2',)
     

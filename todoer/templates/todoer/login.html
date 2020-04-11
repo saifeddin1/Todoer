@@ -1,0 +1,17 @@
+<h1>Login</h1>
+
+<form action="." method="post">
+	{% csrf_token %}
+	{% if messages %}
+		{% for msg in messages  %}
+			{{ msg }}
+		{% endfor %} <br>
+	{% endif %}
+	<label for="">Username</label>
+	<input type="text" name="username">
+
+	<label for="">Password</label>
+	<input type="password" name="password">
+	<button type="submit">Login</button> <br>
+	Don't have an account yet? <a href="{% url 'register' %}">Create one now</a>
+</form>
