@@ -6,7 +6,8 @@
 {% block content %}
     
 		<a href="{% url 'logout' %}">Logout</a> |
-		<a href="{% url 'index' %}">Todo App HomePage</a>
+		<a href="{% url 'index' %}">Todo App HomePage</a> | 
+			<span>Welcome, {{ request.user }} </span>		
 		<br>
 		<div class="container-fluid" id="wrapper">
 			<div class="row">
